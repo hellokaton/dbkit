@@ -1,0 +1,17 @@
+
+# 数据库信息
+db:
+  type: mysql
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: 123456
+  database: ["roo"]
+
+# 周期表达式
+cronexpression:
+
+# 存储
+storage:
+  type: mail
+  account: biezhi.me@gmail.com
