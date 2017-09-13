@@ -1,17 +1,18 @@
 
 # 数据库信息
 db:
+  # mysql|postgres|redis|sqlite
   type: mysql
   host: 127.0.0.1
   port: 3306
   username: root
   password: 123456
-  database: ["roo"]
+  database: roo
 
 # 周期表达式
-cronexpression:
+cronexpression: "*/10 * * * * ?"
 
 # 存储
-storage:
-  type: mail
-  account: biezhi.me@gmail.com
+#storage:
+#  type: local
+#  location: /Users/biezhi/workspace/golang/src/github.com/biezhi/dbkit/tmp
