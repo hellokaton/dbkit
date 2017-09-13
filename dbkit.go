@@ -11,11 +11,13 @@ import (
 )
 
 var (
+	// config file root path
 	RootPath     = "."
 	TarCmd       = "tar"
 	MysqlDumpCmd = "mysqldump"
 )
 
+// dbkit config
 type DbKitConfig struct {
 	Db struct {
 		Type     string
@@ -105,6 +107,7 @@ func main() {
 	os.Exit(0)
 }
 
+// dbkit service start
 func Start(_ *cli.Context) {
 	conf := ParseConfig()
 
@@ -136,6 +139,7 @@ func Start(_ *cli.Context) {
 	select {}
 }
 
+// parse config.yml
 func ParseConfig() *DbKitConfig {
 	var config *DbKitConfig
 	configPath := filepath.Join(RootPath, "config.yml")

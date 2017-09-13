@@ -13,10 +13,12 @@ type Error struct {
 	CmdOutput string
 }
 
+// error string
 func (e Error) Error() string {
 	return e.err.Error()
 }
 
+// make error type
 func MakeErr(err error, out string) *Error {
 	if err != nil {
 		return &Error{
@@ -27,6 +29,7 @@ func MakeErr(err error, out string) *Error {
 	return nil
 }
 
+// to determine whether a file exists
 func PathExists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
@@ -37,7 +40,6 @@ func PathExists(path string) (bool, error) {
 	}
 	return false, err
 }
-
 
 // find dbkit backup process id
 func findPid() int {
@@ -57,4 +59,3 @@ func findPid() int {
 	intVal, _ := strconv.Atoi(pid)
 	return intVal
 }
-

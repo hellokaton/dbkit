@@ -7,14 +7,16 @@ import (
 	"time"
 )
 
+// export mysql data
 func ExportMySql(x DbKitConfig) *ExportResult {
 
 	result := &ExportResult{MIME: "application/x-tar"}
-
+	// local storage path, default is .
 	if x.Storage.Location == "" {
 		x.Storage.Location = "."
 	} else {
 		if b, _ := PathExists(x.Storage.Location); !b {
+			// mkdir storage location
 			os.MkdirAll(x.Storage.Location, 0700)
 		}
 	}
@@ -40,6 +42,7 @@ func ExportMySql(x DbKitConfig) *ExportResult {
 	return result
 }
 
+// append mysql dump options
 func dumpOptions(x DbKitConfig) []string {
 	options := x.Db.Options
 	options = append(options, fmt.Sprintf(`-h%v`, x.Db.Host))
